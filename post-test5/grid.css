@@ -1,0 +1,68 @@
+.container {
+    display: grid;
+    grid-template-areas: 
+        "nav img"
+        "about img"
+        "skill img"
+        "project img"
+        "contact rate";
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+    padding: 10px;
+}
+
+nav {
+    grid-area: nav;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list2 {
+    display: flex;
+    list-style: none;
+}
+
+img {
+    grid-area: img;
+}
+
+#about {
+    grid-area: about;
+    background-color: #eee;
+    padding: 10px;
+}
+
+#skill {
+    grid-area: skill;
+    background-color: #eee;
+    padding: 10px;
+}
+
+#project {
+    grid-area: project;
+    background-color: #eee;
+    padding: 10px;
+}
+
+#contact {
+    grid-area: contact;
+    background-color: #eee;
+    padding: 10px;
+}
+
+#rate {
+    grid-area: rate;
+    background-color: #eee;
+    padding: 10px;
+}
+
+footer {
+    grid-area: footer;
+    background-color: lightgreen;
+    padding: 10px;
+}
