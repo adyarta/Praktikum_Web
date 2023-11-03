@@ -1,0 +1,56 @@
+body {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "header"
+        "nav"
+        "main"
+        "footer";
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    grid-area: header;
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+}
+
+nav {
+    grid-area: nav;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+nav ul li{
+    display: inline;
+}
+
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+section {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    grid-area: footer;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
