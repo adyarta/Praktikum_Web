@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container1">
+        <header>
+            <h1>MyRestaurant</h1>
+        </header>
+    
+        <section>
+            <form id="orderForm">
+                <table>
+                    <tr>
+                        <td>Makanan:</td>
+                        <td>
+                            <select id="makanan" name="makanan">
+                                <option value="nasi_goreng">nasi goreng</option>
+                                <option value="nasi_goreng_spesial">nasi goreng special</option>
+                                <option value="kwetiaw_goreng">Kwetiaw goreng</option>
+                                <option value="mie_rebus">mie rebus</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah:</td>
+                        <td><input type="number" id="jumlah" name="jumlah" min="1" required></td>
+                    </tr>
+                    <tr>
+                        <td>Voucher:</td>
+                        <td><input type="text" id="voucher" name="voucher"></td>
+                    </tr>
+                </table>
+    
+                <button type="button" onclick="calculateTotal()">Submit Order</button><br>
+    </div>
+    <div class="container2">
+
+            <p>
+                <strong>Nama Pesanan:</strong>
+                <span id="namaPesanan"></span>
+            </p>
+            <p>
+                <strong>Jumlah Pesanan:</strong>
+                <span id="jumlahPesanan"></span>
+            </p>
+            <p>
+                <strong>Total Diskon:</strong>
+                <span id="totalDiskon"></span>
+            </p>
+            <p>
+                <strong>Total Harga:</strong>
+                <span id="totalHarga"></span>
+            </p>
+        </form>
+    </section>
+
+    <script>
+        let restaurant = {
+            Makanan: '',
+            Jumlah: 0,
+            Voucher: '',
+        };
+
+        function calculateTotal() {
+            // Mengambil Nilai dari form
+            restaurant.Makanan = document.getElementById('makanan').value;
+            restaurant.Jumlah = parseInt(document.getElementById('jumlah').value);
+            restaurant.Voucher = document.getElementById('voucher').value.toLowerCase();
+
+            // HARGA MAKANAN
+            let priceMap = {
+                'nasi_goreng': 15000, 
+                'nasi_goreng_spesial': 25000, 
+                'kwetiaw_goreng': 15000, 
+                'mie_rebus': 17000, 
+            };
+
+            let pricePerItem = priceMap[restaurant.Makanan];
+            let totalPrice = restaurant.Jumlah * pricePerItem;
+            let discount = 0;
+
+            // Gunakan diskon jika kode voucher valid
+            if (restaurant.Voucher === 'bosganteng') {
+                discount = 0.20; // diskon 20%
+                totalPrice -= totalPrice * discount;
+            }
+
+            // Display pesanan secara detail
+            document.getElementById('namaPesanan').textContent = restaurant.Makanan;
+            document.getElementById('jumlahPesanan').textContent = restaurant.Jumlah;
+            document.getElementById('totalDiskon').textContent = (discount * 100) + '%';
+            document.getElementById('totalHarga').textContent = 'Rp' + totalPrice.toFixed(2);
+        }
+    </script>
+    </div>
+
+</body>
+</html>
