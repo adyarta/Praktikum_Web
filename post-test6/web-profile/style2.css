@@ -1,0 +1,34 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  h1 {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+  }
+  
+  p {
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  span {
+    font-weight: bold;
+  }
+  
+  /* Styling the spans within the <p> tags */
+  p span {
+    color: #0077c0;
+  }
+  
+  /* Styling for the "Lulus" status */
+  #status {
+    color: #3cb043;
+  }
+  
